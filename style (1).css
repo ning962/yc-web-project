@@ -1,0 +1,94 @@
+/* ===== 重置與基礎 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #0f172a 70%);
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+/* ===== 時鐘容器 ===== */
+.clock-container {
+  text-align: center;
+  padding: 3rem 4rem;
+  border-radius: 24px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  box-shadow:
+    0 0 40px rgba(59, 130, 246, 0.25),
+    inset 0 0 30px rgba(59, 130, 246, 0.08);
+  animation: fadeIn 0.8s ease;
+}
+
+/* ===== 標題 ===== */
+.clock-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.4em;
+  font-weight: 400;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* ===== 時間數字 ===== */
+.clock-display {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: clamp(3rem, 12vw, 6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #60a5fa;
+  text-shadow:
+    0 0 10px rgba(96, 165, 250, 0.8),
+    0 0 30px rgba(96, 165, 250, 0.5),
+    0 0 60px rgba(96, 165, 250, 0.3);
+}
+
+/* 每秒閃爍效果 */
+.clock-display {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.92; }
+}
+
+/* ===== 日期顯示 ===== */
+.date-display {
+  margin-top: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+}
+
+/* ===== 進場動畫 ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== 行動裝置響應式 ===== */
+@media (max-width: 480px) {
+  .clock-container {
+    padding: 2rem 1.5rem;
+  }
+  .clock-title {
+    letter-spacing: 0.2em;
+  }
+}
